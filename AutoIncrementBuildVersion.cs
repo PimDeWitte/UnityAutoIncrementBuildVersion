@@ -36,7 +36,7 @@ public class AutoIncrementBuildVersion : MonoBehaviour
 			int major = Convert.ToInt32 (currentVersion.Split ('.') [0]);
 			int minor = Convert.ToInt32 (currentVersion.Split ('.') [1]);
 			int build = Convert.ToInt32 (currentVersion.Split ('.') [2]) + 1;
-		
+
 
 			PlayerSettings.bundleVersion = major + "." + minor + "." + build;
 
@@ -47,15 +47,15 @@ public class AutoIncrementBuildVersion : MonoBehaviour
 			} else if (buildTarget == BuildTarget.Android) {
 				PlayerSettings.Android.bundleVersionCode = build;
 				UnityEngine.Debug.Log ("Finished with bundleversioncode:" + PlayerSettings.Android.bundleVersionCode + "and version" + PlayerSettings.bundleVersion);
-			}
-				
+			}		
 			// It's important that you do not chane your project settings during a build in the cloud.
 
-			AssetDatabase.SaveAssets(); // should only be project version
 
-			// commit the settings to git
-		
+			// commit the settings to git only if you are in cloud build. If you save locally, we save your project settings so that you can commit them.
+			#if CLOUD_BUILD
+			AssetDatabase.SaveAssets(); // should only be project version
 			commitFileToGit ("ProjectSettings/ProjectSettings.asset");
+			#endif
 
 		} catch (Exception e) {
 			UnityEngine.Debug.LogError (e);
