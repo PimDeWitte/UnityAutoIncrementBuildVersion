@@ -7,7 +7,7 @@ This is a simple automation tool for generating Unity build versions automatical
 
 3) It then saves your project settings and commits them back into git
 
-4) The next time the build will be increased by 1, and you didn't have to do anything.
+4) The next time the build will be increased by 1, and you didn't have to do anything. This is useful when you want to automate your Unity build process and need to ship a lot of different versions quickly through cloud build.
 
 # Before you start
 In Player Settings, make sure your version number is MAJOR.MINOR.BUILDNUMBER (e.g. 1.0.12) before running the script. X.X (1.0) or X (1) won't work. Also turn your build number setting into the same as the build number setting in the semantic version (Major.minor.buildnumber)
