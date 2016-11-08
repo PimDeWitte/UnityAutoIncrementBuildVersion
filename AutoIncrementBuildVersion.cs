@@ -6,7 +6,7 @@ using UnityEditor.iOS.Xcode;
 using System.IO;
 using System;
 
-public class YourPostBuildScript : MonoBehaviour
+public class AutoIncrementBuildVersion : MonoBehaviour
 {
 
   // Automatically increment the version number for each unity build. Particularly useful so you can push Unity Cloud Build projects to prod with a peace of mind.
