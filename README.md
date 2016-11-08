@@ -1,11 +1,11 @@
 # UnityAutoIncrementBuildVersion
-This is a simple automation tool for generating Unity build versions automatically on git-based Unity projects. 
+This is a simple automation tool for generating Unity build versions automatically. It also enables git-enabled Unity Cloud Build projects to AUTOMATICALLY increment the build number if you build with cloud build, so that you do not have to constantly push with new versions when building with cloud build.
 
 1) It reads the current player setting's version information
 
 2) It increases your build number and build version code by 1
 
-3) It then saves your project settings and commits them back into git like this (This commit was automated):
+3) If the build is on unity cloud build, it then saves your project settings and commits them back into git like this automatically. If it wasn't in cloud build, it just increases your version number and allows you to save project settings at your own convenience (make sure to do this before you push if you make your own builds)
 
 ![alt text](http://i.imgur.com/05rhU1w.png "Commit back")
 
@@ -17,8 +17,11 @@ This is a simple automation tool for generating Unity build versions automatical
 
 2) Ensure that your unity cloud build authorization has access to write to git as well as read from it.
 
+3) If you use cloud build, set your build's custom defines properly so it can commit back to git: http://i.imgur.com/L7Kemih.png
+
+
 # Installing
-It's simple: Place the AutoIncrementBuildVersion.cs script in PROJECT ROOT/Editor/AutoIncrementBuildVersion.cs, and save the commit.sh file under your PROJECT ROOT/commit.sh - That's it! It will now hook into your build process, automatically update git, and any future versions.
+It's simple: Place the AutoIncrementBuildVersion.cs script in PROJECT ROOT/Editor/AutoIncrementBuildVersion.cs, and save the commit.sh file under your PROJECT ROOT/commit.sh - That's it! It will now hook into your build process, automatically update git, and any future versions. It will even commit files back to git for you and make sure your team always builds the next version. 
 
 #Getting the version number inside your unity project
 Simply call 
