@@ -1,4 +1,6 @@
 #!/bin/sh
 
-#Adds only the incr_version file, commits it to git and pushes it with force
-git commit $1 -m "Increase version number" && git push origin HEAD
+# This always comes from cloud build so, so push with force after the only edited asset is saved(ProjectSettings)
+git commit $1 -m "Automated file edit" && git push --force origin HEAD
+
+
