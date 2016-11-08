@@ -13,11 +13,14 @@ public class AutoIncrementBuildVersion : MonoBehaviour
   [PostProcessBuildAttribute(1)]
 	public static void OnPostprocessBuild(BuildTarget buildTarget, string path) {
   
+  		string baseVersion = PlayerSettings.bundleVersion; // make sure this is X.X.X (e.g. 1.0.0) before running the script. X.X (1.0) or X (1) won't work.
 		string fileName = "incr_version.txt";
 		if(!File.Exists(fileName)) {
-			File.WriteAllText (fileName, PlayerSettings.bundleVersion);
+			File.WriteAllText (fileName, baseVersion);
 		}
-
+		
+		//NOTE: Script expects X.X.X to be your bundleVersion ALREADY. In order for this to work, set your current version number and build number for Android and iOS to your next version (e.g. 1.2.204)
+		
 		string currentVersion = File.ReadAllText (fileName);
 
 		int major = Convert.ToInt32(currentVersion.Split('.')[0]);
