@@ -2,7 +2,7 @@
 Simple post build script to increment each build version in Unity
 
 #How-to
-Just place AutoIncrementBuildVersion.cs under your Editor/ directory and it should run automatically after every build. In Player Settings, make sure your version number is X.X.X (e.g. 1.0.0) before running the script. X.X (1.0) or X (1) won't work. Note: This turns your build number on your bundleVersion into your build number on Android and iOS. So set your currnet player settings version on android and ios to your next desired build number (e.g. 1.0.12).
+In Player Settings, make sure your version number is MAJOR.MINOR.BUILDNUMBER (e.g. 1.0.12) before running the script. X.X (1.0) or X (1) won't work. Also turn your build number setting into the same as the build number setting in the semantic version (Major.minor.buildnumber)
 
 #Getting the version number inside your unity project
 Simply call 
