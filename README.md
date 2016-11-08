@@ -5,18 +5,24 @@ This is a simple automation tool for generating Unity build versions automatical
 
 2) It increases your build number and build version code by 1
 
-3) It then saves your project settings and commits them back into git
+3) It then saves your project settings and commits them back into git like this (This commit was automated):
+
+![alt text](http://i.imgur.com/05rhU1w.png "Commit back")
 
 4) The next time the build will be increased by 1, and you didn't have to do anything. This is useful when you want to automate your Unity build process and need to ship a lot of different versions quickly through cloud build.
 
 # Before you start
-In Player Settings, make sure your version number is MAJOR.MINOR.BUILDNUMBER (e.g. 1.0.12) before running the script. X.X (1.0) or X (1) won't work. Also turn your build number setting into the same as the build number setting in the semantic version (Major.minor.buildnumber)
+
+1) Ensure that your bundle version is set to a proper semantic version (e.g 1.0.0) and not a 1.0 or 1. Also ensure your build version id is atually a correct number.
+
+2) Ensure that your unity cloud build authorization has access to write to git as well as read from it.
 
 # Installing
 It's simple: Place the AutoIncrementBuildVersion.cs script in PROJECT ROOT/Editor/AutoIncrementBuildVersion.cs, and save the commit.sh file under your PROJECT ROOT/commit.sh
 
 #Getting the version number inside your unity project
 Simply call 
+
 ```C#
 Application.version
 ```
