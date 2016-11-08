@@ -18,7 +18,7 @@ This is a simple automation tool for generating Unity build versions automatical
 2) Ensure that your unity cloud build authorization has access to write to git as well as read from it.
 
 # Installing
-It's simple: Place the AutoIncrementBuildVersion.cs script in PROJECT ROOT/Editor/AutoIncrementBuildVersion.cs, and save the commit.sh file under your PROJECT ROOT/commit.sh
+It's simple: Place the AutoIncrementBuildVersion.cs script in PROJECT ROOT/Editor/AutoIncrementBuildVersion.cs, and save the commit.sh file under your PROJECT ROOT/commit.sh - That's it! It will now hook into your build process, automatically update git, and any future versions.
 
 #Getting the version number inside your unity project
 Simply call 
