@@ -54,6 +54,7 @@ public class AutoIncrementBuildVersion : MonoBehaviour
 			AssetDatabase.SaveAssets(); // should only be project version
 
 			// commit the settings to git
+		
 			commitFileToGit ("ProjectSettings/ProjectSettings.asset");
 
 		} catch (Exception e) {
