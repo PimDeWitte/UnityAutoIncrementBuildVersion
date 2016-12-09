@@ -21,7 +21,29 @@ This is a simple automation tool for generating Unity build versions automatical
 
 
 # Installing
-It's simple: Place the AutoIncrementBuildVersion.cs script in PROJECT ROOT/Editor/AutoIncrementBuildVersion.cs, and save the commit.sh file under your PROJECT ROOT/commit.sh - That's it! It will now hook into your build process, automatically update git, and any future versions. It will even commit files back to git for you and make sure your team always builds the next version. 
+It's simple: 
+
+Place the AutoIncrementBuildVersion.cs script in PROJECT ROOT/Editor/AutoIncrementBuildVersion.cs, and save the commit.sh file under your PROJECT ROOT/commit.sh.
+
+In the same directory as commit.sh is located in, ```run ssh-keygen -t``` rsa to generate a deploy key. Simply call it "deploy". the commit.sh file will automatically add the deploy key to the local ssh session, as long as you properly name the key "deploy".
+
+Like this:
+```ssh
+a:test wwadewitte$ ssh-keygen -t rsa
+Generating public/private rsa key pair.
+Enter file in which to save the key (/Users/wwadewitte/.ssh/id_rsa): deploy
+Enter passphrase (empty for no passphrase): 
+Enter same passphrase again: 
+Your identification has been saved in deploy.
+Your public key has been saved in deploy.pub.
+The key fingerprint is:
+```
+
+Enter that deploy key as a deploy key in your github account under settings -> deploy keys
+
+
+
+That's it! It will now hook into your build process, automatically update git, and any future versions. It will even commit files back to git for you and make sure your team always builds the next version. 
 
 #Getting the version number inside your unity project
 Simply call 
