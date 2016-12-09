@@ -25,7 +25,7 @@ It's simple:
 
 Place the AutoIncrementBuildVersion.cs script in PROJECT ROOT/Editor/AutoIncrementBuildVersion.cs, and save the commit.sh file under your PROJECT ROOT/commit.sh.
 
-In the same directory as commit.sh is located in, ```run ssh-keygen -t``` rsa to generate a deploy key. Simply call it "deploy". the commit.sh file will automatically add the deploy key to the local ssh session, as long as you properly name the key "deploy".
+In the same directory as commit.sh is located in, ```run ssh-keygen -t rsa``` to generate a deploy key. Simply call it "deploy". the commit.sh file will automatically add the deploy key to the local ssh session, as long as you properly name the key "deploy".
 
 Like this:
 ```ssh
@@ -39,7 +39,7 @@ Your public key has been saved in deploy.pub.
 The key fingerprint is:
 ```
 
-Enter that deploy key as a deploy key in your github account under settings -> deploy keys
+Enter that deploy key as a deploy key in your github account under settings -> deploy keys (get the key with ```cat deploy.pub```)
 
 Commit deploy and deploy.pub to the repository so that unity cloud build can pull the keys down and use them
 
