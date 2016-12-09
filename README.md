@@ -41,7 +41,7 @@ The key fingerprint is:
 
 Enter that deploy key as a deploy key in your github account under settings -> deploy keys
 
-
+Commit deploy and deploy.pub to the repository so that unity cloud build can pull the keys down and use them
 
 That's it! It will now hook into your build process, automatically update git, and any future versions. It will even commit files back to git for you and make sure your team always builds the next version. 
 
